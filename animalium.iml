@@ -165,5 +165,9 @@
     <orderEntry type="library" name="mox" level="project" />
     <orderEntry type="library" name="ordinal" level="project" />
     <orderEntry type="library" name="credo" level="project" />
+    <orderEntry type="library" name="absinthe" level="project" />
+    <orderEntry type="library" name="nimble_parsec" level="project" />
+    <orderEntry type="library" name="dataloader" level="project" />
+    <orderEntry type="library" name="makeup_graphql" level="project" />
   </component>
 </module>

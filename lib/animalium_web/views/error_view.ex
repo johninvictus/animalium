@@ -29,5 +29,4 @@ defmodule AnimaliumWeb.ErrorView do
       }
     }
   end
-
 end

@@ -21,12 +21,24 @@ defmodule AnimaliumWeb.Router do
   end
 
   # REST API.
-   scope "/api", AnimaliumWeb do
-     pipe_through :api
+  scope "/api", AnimaliumWeb do
+    pipe_through :api
 
-     get "/pokemon_by_name", PokemonController, :by_name
-     get "/pokemon_by_id", PokemonController, :by_id
-   end
+    get "/pokemon_by_name", PokemonController, :by_name
+    get "/pokemon_by_id", PokemonController, :by_id
+  end
+
+  # GraphQL API
+  scope "/" do
+    pipe_through(:api)
+
+    forward("/graphiql", Absinthe.Plug.GraphiQL,
+      schema: AnimaliumWeb.Schema,
+      interface: :advanced
+    )
+
+    forward("/graphAPI", Absinthe.Plug, schema: AnimaliumWeb.Schema)
+  end
 
   # Enables LiveDashboard only for development
   #

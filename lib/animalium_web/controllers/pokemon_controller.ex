@@ -14,6 +14,6 @@ defmodule AnimaliumWeb.PokemonController do
   def by_id(conn, %{"id" => id}) do
     with {:ok, pokemon} <- PokemonRepo.get_pokemon_by_id(String.to_integer(id)) do
       json(conn, pokemon)
-     end
+    end
   end
 end
