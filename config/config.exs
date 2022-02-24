@@ -7,8 +7,11 @@
 # General application configuration
 import Config
 
+config :tesla, adapter: Tesla.Adapter.Hackney
+
 config :animalium,
-  ecto_repos: [Animalium.Repo]
+  ecto_repos: [Animalium.Repo],
+  pokemon_base_url: "https://pokeapi.co/api/v2/"
 
 # Configures the endpoint
 config :animalium, AnimaliumWeb.Endpoint,

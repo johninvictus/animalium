@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="hammox" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/hammox/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/hammox/lib" />
+      <root url="file://$PROJECT_DIR$/deps/hammox/lib" />
+      <root url="file://$PROJECT_DIR$/deps/hammox/lib" />
+    </SOURCES>
+  </library>
+</component>

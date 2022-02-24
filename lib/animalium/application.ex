@@ -15,7 +15,8 @@ defmodule Animalium.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Animalium.PubSub},
       # Start the Endpoint (http/https)
-      AnimaliumWeb.Endpoint
+      AnimaliumWeb.Endpoint,
+      Animalium.PokemonCache
       # Start a worker by calling: Animalium.Worker.start_link(arg)
       # {Animalium.Worker, arg}
     ]
