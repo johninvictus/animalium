@@ -1,9 +1,8 @@
-defmodule Animalium.Pokemon do
+defmodule Animalium.API.APokemonAPI do
   @moduledoc """
   Make request to API with Pokemon path
   """
   use Animalium.BaseApi, path: "pokemon"
-
 
   @doc """
    Will return pokemon if provided an id

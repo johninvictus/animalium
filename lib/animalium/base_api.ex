@@ -1,4 +1,4 @@
-defmodule Animalium.BaseApi do
+defmodule Animalium.BaseAPI do
   @moduledoc """
    Base HTTP client to contact Pokemon API
   """
