@@ -27,9 +27,11 @@ defmodule Animalium.DataCase do
     end
   end
 
+
   setup tags do
     pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Animalium.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
+    TeslaMock.mock()
     :ok
   end
 
