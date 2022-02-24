@@ -7,7 +7,6 @@
 # General application configuration
 import Config
 
-
 config :tesla, adapter: Tesla.Adapter.Hackney
 
 config :animalium,

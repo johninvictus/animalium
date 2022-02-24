@@ -6,8 +6,6 @@ defmodule Animalium.Store.Pokemon do
   schema "pokemons" do
     field :id, :integer, primary_key: true
     field :name, :string
-
-    timestamps()
   end
 
   @doc false

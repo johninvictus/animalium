@@ -38,6 +38,36 @@ defmodule Animalium.Store do
   def get_pokemon!(id), do: Repo.get!(Pokemon, id)
 
   @doc """
+  Get a single pokemon.
+
+  Return nil if nothing was found.
+
+  ## Example
+
+    iex> get_pokemon(123)
+    %Pokemon{}
+
+    iex> get_pokemon!(456)
+    nil
+  """
+  def get_pokemon(id), do: Repo.get(Pokemon, id)
+
+  @doc """
+  Get a single pokemon.
+
+  Return nil if nothing was found.
+
+  ## Example
+
+    iex> get_pokemon_by_name("pk")
+    %Pokemon{}
+
+    iex> get_pokemon_by_name!("px")
+    nil
+  """
+  def get_pokemon_by_name(name), do: Repo.get_by(Pokemon, name: name)
+
+  @doc """
   Creates a pokemon.
 
   ## Examples

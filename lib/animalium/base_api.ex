@@ -46,7 +46,6 @@ defmodule Animalium.BaseAPI do
       Process the results comming from pokemon api
       """
 
-
       @spec process_result({:ok, Tesla.Env.t()} | {:error, map()}) :: response()
       def process_result({:ok, %{status: status, body: body}}) when status in [200, 201] do
         if is_map(body) do
