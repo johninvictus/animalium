@@ -4,6 +4,7 @@ defmodule Animalium.PokemonCache do
   """
   use GenServer
   alias Animalium.{Store, Repo}
+  alias Animalium.Store.Pokemon
 
   require Logger
 
@@ -12,10 +13,14 @@ defmodule Animalium.PokemonCache do
   end
 
   @doc "add pokemon to cache"
-  def add_pokemon(%{name: _, id: _} = pokemon) do
+  @spec add_pokemon(Pokemon.t()) :: :ok
+  def add_pokemon(%Pokemon{name: _, id: _} = pokemon) do
     GenServer.cast(__MODULE__, {:add_pokemon, pokemon})
   end
 
+
+  @doc "get pokemon by id"
+  @spec get_pokemon_by_id(binary()) :: {:ok, map()} | {:error, :not_found}
   def get_pokemon_by_id(id) do
     with {:error, :not_found} <- get_ets_pokemon(id),
     {:ok, pokemon} <- Repo.result(Store.get_pokemon(id)) do
@@ -25,6 +30,7 @@ defmodule Animalium.PokemonCache do
   end
 
 
+  @doc "get pokemon by it name"
   def get_pokemon_by_name(name) do
     with {:error, :not_found} <- get_ets_pokemon(name),
     {:ok, pokemon} <- Repo.result(Store.get_pokemon_by_name(name)) do
