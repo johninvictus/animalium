@@ -165,5 +165,6 @@
     <orderEntry type="library" name="mox" level="project" />
     <orderEntry type="library" name="ordinal" level="project" />
     <orderEntry type="library" name="credo" level="project" />
+    <orderEntry type="library" name="absinthe" level="project" />
   </component>
 </module>
