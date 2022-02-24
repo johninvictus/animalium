@@ -37,7 +37,7 @@ defmodule AnimaliumWeb.Router do
       interface: :advanced
     )
 
-    forward("/graphAPI", Absinthe.Plug, schema: AnimaliumWeb.Schema)
+    forward("/graph_api", Absinthe.Plug, schema: AnimaliumWeb.Schema)
   end
 
   # Enables LiveDashboard only for development
