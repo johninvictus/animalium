@@ -7,6 +7,9 @@
 # General application configuration
 import Config
 
+
+config :tesla, adapter: Tesla.Adapter.Hackney
+
 config :animalium,
   ecto_repos: [Animalium.Repo]
 
