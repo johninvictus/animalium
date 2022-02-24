@@ -23,7 +23,7 @@ defmodule Animalium.StoreTest do
     test "get_pokemon/1 returns the pokemon with given id" do
       pokemon = pokemon_fixture()
       assert Store.get_pokemon(pokemon.id) == pokemon
-      assert Store.get_pokemon(pokemon.id+1) == nil
+      assert Store.get_pokemon(pokemon.id + 1) == nil
     end
 
     test "get_pokemon_by_name/1 returns the pokemon with given name" do
