@@ -11,11 +11,10 @@ defmodule Animalium.PokemonRepo do
   def get_pokemon_by_name(name) do
     with {:error, :not_found} <- PokemonCache.get_pokemon_by_name(name),
          {:ok, pokemon} <- PokemonAPI.get_by_name(name),
-          :ok <- PokemonCache.add_pokemon(pokemon) do
+         :ok <- PokemonCache.add_pokemon(pokemon) do
       {:ok, pokemon}
     end
   end
-
 
   @doc """
   Will return Pokemon when id is provided
@@ -27,5 +26,4 @@ defmodule Animalium.PokemonRepo do
       {:ok, pokemon}
     end
   end
-
 end
