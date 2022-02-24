@@ -20,7 +20,7 @@ defmodule Animalium.BaseAPI do
     quote do
       use Tesla, doc: false
 
-      @type response() :: {:ok, map()} | {:error, map()}
+      @type response() :: {:ok, map()} | {:error, map() | string()}
 
       @config unquote(opts)
 
