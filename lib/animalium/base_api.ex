@@ -20,6 +20,8 @@ defmodule Animalium.BaseAPI do
     quote do
       use Tesla, doc: false
 
+      @type response() :: {:ok, map()} | {:error, map()}
+
       @config unquote(opts)
 
       @accept "application/json"
@@ -43,6 +45,9 @@ defmodule Animalium.BaseAPI do
       @doc """
       Process the results comming from pokemon api
       """
+
+
+      @spec process_result({:ok, Tesla.Env.t()} | {:error, map()}) :: response()
       def process_result({:ok, %{status: status, body: body}}) when status in [200, 201] do
         if is_map(body) do
           {:ok, body}
