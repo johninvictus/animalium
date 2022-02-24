@@ -25,12 +25,14 @@ jobs:
          otp-version: "24"
          elixir-version: "1.13.1"
          rebar3-version: "3.15"
+
      - uses: actions/cache@v2
        with:
          path: deps
          key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
          restore-keys: |
            ${{ runner.os }}-mix-
+
      - uses: actions/setup-node@v1
        with:
          node-version: '10.x'
@@ -47,8 +49,6 @@ jobs:
         mix local.rebar --force
         mix local.hex --force
         mix deps.get
-        npm install --prefix assets
-        npm run deploy --prefix assets
         
      - name: Run test
        run: mix test
