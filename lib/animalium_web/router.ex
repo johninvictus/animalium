@@ -20,10 +20,13 @@ defmodule AnimaliumWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", AnimaliumWeb do
-  #   pipe_through :api
-  # end
+  # REST API.
+   scope "/api", AnimaliumWeb do
+     pipe_through :api
+
+     get "/pokemon_by_name", PokemonController, :by_name
+     get "/pokemon_by_id", PokemonController, :by_id
+   end
 
   # Enables LiveDashboard only for development
   #
