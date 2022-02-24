@@ -3,11 +3,10 @@ defmodule Animalium.API.PokemonAPITest do
 
   alias Animalium.API.PokemonAPI
 
-
   test "get_by_id/1" do
-     id = 1
-     {:ok, pokemon} = PokemonAPI.get_by_id(id)
-     assert pokemon.id == id
+    id = 1
+    {:ok, pokemon} = PokemonAPI.get_by_id(id)
+    assert pokemon.id == id
   end
 
   test "get_by_name/1" do
@@ -15,5 +14,4 @@ defmodule Animalium.API.PokemonAPITest do
     {:ok, pokemon} = PokemonAPI.get_by_name(name)
     assert pokemon.name == name
   end
-
 end

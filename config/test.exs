@@ -13,7 +13,6 @@ config :animalium, Animalium.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
-
 config :tesla, adapter: Tesla.Mock
 
 # We don't run a server during test. If one is required,
