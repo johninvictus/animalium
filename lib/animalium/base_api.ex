@@ -26,7 +26,7 @@ defmodule Animalium.BaseApi do
       @content_type "application/x-www-form-urlencoded"
       @base_url Application.get_env(:animalium, :pokemon_base_url)
 
-      plug(Tesla.Middleware.BaseUrl, base_url <> "/" <> @config[:path])
+      plug(Tesla.Middleware.BaseUrl, @base_url <> @config[:path])
 
       # The `type` config is to allow the api send `application/json` check https://github.com/teamon/tesla#formats for more info. Needed in requests such as Mobile/checkput
       if @config[:type] && @config[:type] == "json" do
@@ -43,16 +43,16 @@ defmodule Animalium.BaseApi do
       @doc """
       Process the results comming from pokemon api
       """
-      def process_result({:ok, %{status: status} = res}) when status in [200, 201] do
-        if is_map(res.body) do
-          {:ok, res.body}
+      def process_result({:ok, %{status: status, body: body}}) when status in [200, 201] do
+        if is_map(body) do
+          {:ok, body}
         else
-          Jason.decode(res.body)
+          Jason.decode(body)
         end
       end
 
-      def process_result({:ok, result}) do
-        {:error, %{status: result.status, message: result.body}}
+      def process_result({:ok, %{status: status, body: body}}) do
+        {:error, %{status: status, message: body}}
       end
 
       def process_result({:error, result}) do
