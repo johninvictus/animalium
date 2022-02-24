@@ -20,6 +20,18 @@ defmodule Animalium.StoreTest do
       assert Store.get_pokemon!(pokemon.id) == pokemon
     end
 
+    test "get_pokemon/1 returns the pokemon with given id" do
+      pokemon = pokemon_fixture()
+      assert Store.get_pokemon(pokemon.id) == pokemon
+      assert Store.get_pokemon(pokemon.id+1) == nil
+    end
+
+    test "get_pokemon_by_name/1 returns the pokemon with given name" do
+      pokemon = pokemon_fixture()
+      assert Store.get_pokemon_by_name(pokemon.name) == pokemon
+      assert Store.get_pokemon_by_name("magic") == nil
+    end
+
     test "create_pokemon/1 with valid data creates a pokemon" do
       valid_attrs = %{id: 42, name: "some name"}
 
