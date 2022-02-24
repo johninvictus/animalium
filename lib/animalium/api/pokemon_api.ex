@@ -1,4 +1,4 @@
-defmodule Animalium.API.APokemonAPI do
+defmodule Animalium.API.PokemonAPI do
   @moduledoc """
   Make request to API with Pokemon path
   """

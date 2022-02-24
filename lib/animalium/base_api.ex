@@ -49,9 +49,12 @@ defmodule Animalium.BaseAPI do
       @spec process_result({:ok, Tesla.Env.t()} | {:error, map()}) :: response()
       def process_result({:ok, %{status: status, body: body}}) when status in [200, 201] do
         if is_map(body) do
-          {:ok, body}
+          {:ok, get_pokemon_id_name(body)}
         else
-          Jason.decode(body)
+          case Jason.decode(body) do
+            {:ok, body} -> {:ok, get_pokemon_id_name(body)}
+            result -> result
+          end
         end
       end
 
@@ -62,6 +65,8 @@ defmodule Animalium.BaseAPI do
       def process_result({:error, result}) do
         {:error, result}
       end
+
+      defp get_pokemon_id_name(%{"id" => id, "name" => name}), do: %{id: id, name: name}
     end
   end
 end

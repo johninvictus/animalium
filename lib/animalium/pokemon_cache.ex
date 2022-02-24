@@ -38,7 +38,6 @@ defmodule Animalium.PokemonCache do
 
   @impl GenServer
   def init(_) do
-
     # start an ETS instance for in memory cache
     # only genserver will be able to write ETS (:protected)
     :ets.new(ets_table(), [:ordered_set, :protected, :named_table])

@@ -24,11 +24,10 @@ defmodule Animalium.PokemonCacheTest do
     # wait for cache to be store
     Process.sleep(10)
     assert {:ok, ^pokemon} = PokemonCache.get_pokemon_by_id(pokemon.id)
-    assert {:error, :not_found} = PokemonCache.get_pokemon_by_id(pokemon.id+1)
+    assert {:error, :not_found} = PokemonCache.get_pokemon_by_id(pokemon.id + 1)
 
     Process.sleep(100)
   end
-
 
   test "get_pokemon_by_name/1" do
     pokemon = %{id: 100, name: "ix"}
@@ -41,6 +40,4 @@ defmodule Animalium.PokemonCacheTest do
 
     Process.sleep(100)
   end
-
-
 end
