@@ -7,6 +7,9 @@ defmodule Animalium.API.PokemonAPITest do
     id = 1
     {:ok, pokemon} = PokemonAPI.get_by_id(id)
     assert pokemon.id == id
+
+    # unknown id
+    {:error, %{message: "Not found", status: 404}} = PokemonAPI.get_by_id(200)
   end
 
   test "get_by_name/1" do
