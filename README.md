@@ -1,5 +1,8 @@
 # Animalium
 
+![Animalium CI](https://github.com/johninvictus/
+animalium/actions/workflows/test.yml/badge.svg)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
