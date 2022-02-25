@@ -1,7 +1,6 @@
 # Animalium
 
-![Animalium CI](https://github.com/johninvictus/
-animalium/actions/workflows/test.yml/badge.svg)
+![Animalium CI](https://github.com/johninvictus/animalium/actions/workflows/test.yml/badge.svg)
 
 To start your Phoenix server:
 
