@@ -18,7 +18,7 @@ defmodule TeslaMock do
             %Tesla.Env{status: 200, body: pokemon}
 
           [] ->
-            %Tesla.Env{status: 400, body: %{}}
+            %Tesla.Env{status: 404, body: "Not found"}
         end
     end)
   end
