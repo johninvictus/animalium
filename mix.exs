@@ -51,9 +51,9 @@ defmodule Animalium.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:hammox, "~> 0.5", only: :test},
       {:absinthe, "~> 1.7"},
-      {:absinthe_plug, "~> 1.5"}
+      {:absinthe_plug, "~> 1.5"},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 

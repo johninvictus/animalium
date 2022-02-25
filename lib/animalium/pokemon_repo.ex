@@ -8,6 +8,7 @@ defmodule Animalium.PokemonRepo do
   @doc """
   Will return Pokemon when name is provided
   """
+  @spec get_pokemon_by_name(binary()) :: {:error, map() | :not_found} | {:ok, map()}
   def get_pokemon_by_name(name) do
     with {:error, :not_found} <- PokemonCache.get_pokemon_by_name(name),
          {:ok, pokemon} <- PokemonAPI.get_by_name(name),
@@ -19,6 +20,7 @@ defmodule Animalium.PokemonRepo do
   @doc """
   Will return Pokemon when id is provided
   """
+  @spec get_pokemon_by_id(integer()) :: {:error, map() | :not_found} | {:ok, map()}
   def get_pokemon_by_id(id) do
     with {:error, :not_found} <- PokemonCache.get_pokemon_by_id(id),
          {:ok, pokemon} <- PokemonAPI.get_by_id(id),
