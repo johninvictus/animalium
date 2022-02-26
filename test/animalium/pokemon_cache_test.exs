@@ -1,5 +1,5 @@
 defmodule Animalium.PokemonCacheTest do
-  use Animalium.DataCase, async: false
+  use Animalium.DataCase, async: true
 
   alias Animalium.PokemonCache
 
@@ -10,7 +10,7 @@ defmodule Animalium.PokemonCacheTest do
   end
 
   test "add_pokemon/1" do
-    pokemon = %{id: 1, name: "phoenix"}
+    pokemon = %{id: 2, name: "rockers"}
     assert PokemonCache.add_pokemon(pokemon) == :ok
 
     # Hack to make sure postgres connection completes before GenServer dies

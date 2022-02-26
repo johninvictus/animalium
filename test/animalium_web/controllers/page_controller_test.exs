@@ -1,5 +1,5 @@
 defmodule AnimaliumWeb.PageControllerTest do
-  use AnimaliumWeb.ConnCase
+  use AnimaliumWeb.ConnCase, async: true
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
