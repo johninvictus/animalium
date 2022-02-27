@@ -1,5 +1,5 @@
 defmodule AnimaliumWeb.PokemonControllerTest do
-  use AnimaliumWeb.ConnCase
+  use AnimaliumWeb.ConnCase, async: true
 
   test "GET /pokemon_by_name" do
     conn = build_conn()

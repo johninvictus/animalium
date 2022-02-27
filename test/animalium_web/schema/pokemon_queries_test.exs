@@ -1,5 +1,5 @@
 defmodule AnimaliumWeb.PokemonQueriesTest do
-  use AnimaliumWeb.ConnCase
+  use AnimaliumWeb.ConnCase, sync: true
 
   test "pokemon_by_name" do
     query = """

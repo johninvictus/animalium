@@ -12,9 +12,9 @@ defmodule Animalium.PokemonCache do
   end
 
   @doc "add pokemon to cache"
-  @spec add_pokemon(map()) :: :ok
-  def add_pokemon(%{name: name, id: id}) do
-    GenServer.cast(__MODULE__, {:add_pokemon, %{name: name, id: id}})
+  @spec add_pokemon(map(), pid() | nil) :: :ok
+  def add_pokemon(%{name: name, id: id}, caller_process \\ nil) do
+    GenServer.cast(__MODULE__, {:add_pokemon, %{name: name, id: id}, caller_process})
   end
 
   @doc "get pokemon by id"
@@ -45,11 +45,17 @@ defmodule Animalium.PokemonCache do
   end
 
   @impl GenServer
-  def handle_cast({:add_pokemon, pokemon}, state) do
+  def handle_cast({:add_pokemon, pokemon, caller_process}, state) do
     # add to ets if empty
     add_pokemon_to_ets(pokemon)
     # add to database if empty
     add_pokemon_to_db(pokemon)
+
+    # caller process will be notified once the work is done
+    #  This will come in handy during testing
+    if caller_process != nil do
+      send(caller_process, :done)
+    end
 
     {:noreply, state}
   end
