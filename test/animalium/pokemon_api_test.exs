@@ -1,5 +1,5 @@
 defmodule Animalium.API.PokemonAPITest do
-  use Animalium.DataCase
+  use Animalium.DataCase, async: true
 
   alias Animalium.API.PokemonAPI
 
