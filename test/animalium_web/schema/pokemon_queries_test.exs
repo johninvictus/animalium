@@ -1,8 +1,16 @@
 defmodule AnimaliumWeb.PokemonQueriesTest do
   use AnimaliumWeb.ConnCase, sync: true
 
-  @tag :skip
+  import Mox
+
+  # @tag :skip
   test "pokemon_by_name" do
+    PokemonAPIMock
+    |> expect(:fetch_content, fn name  ->
+      {:ok, %Tesla.Env{status: 200, body:  %{"id" => 1, "name" => name}}}
+    end)
+
+
     query = """
     query {
       pokemonByName(name: "Phoenix"){
@@ -27,8 +35,14 @@ defmodule AnimaliumWeb.PokemonQueriesTest do
              json_response(conn, 200)
   end
 
-  @tag :skip
+  # @tag :skip
   test "pokemon_by_id" do
+
+    PokemonAPIMock
+    |> expect(:fetch_content, fn id ->
+      {:ok, %Tesla.Env{status: 200, body: %{"id" => String.to_integer(id), "name" => "Phoenix"}}}
+    end)
+
     query = """
       query {
         pokemonById(id: 1){
