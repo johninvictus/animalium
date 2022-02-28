@@ -22,6 +22,9 @@ config :animalium, AnimaliumWeb.Endpoint,
   secret_key_base: "28oCr6/0kCRfAiPSk/eoqNCwySeJKvxytllAZsEQ+ylkVloEo4a/RL3CFIJo92La",
   server: false
 
+config :animalium,
+  http_adapter: PokemonAPIMock
+
 # In test we don't send emails.
 config :animalium, Animalium.Mailer, adapter: Swoosh.Adapters.Test
 

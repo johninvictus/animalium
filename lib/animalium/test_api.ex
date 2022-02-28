@@ -12,14 +12,6 @@ defmodule Animalium.TestAPI do
 
   @doc """
   Will return a pokemon name or a not found message
-
-  ## Example
-   iex> alias Animalium.TestAPI
-   iex> id = 1
-   iex> TestAPI.get_by_id(id)
-   "Phoenix"
-   iex> TestAPI.get_by_id(200)
-   "Not found"
   """
   @spec get_by_id(integer()) :: binary()
   def get_by_id(id) do
@@ -33,14 +25,6 @@ defmodule Animalium.TestAPI do
 
    @doc """
   Will return a pokemon name or a not found message
-
-  ## Example
-   iex> alias Animalium.TestAPI
-   iex> name = "Phoenix"
-   iex> TestAPI.get_by_name(name)
-   1
-   iex> TestAPI.get_by_name("px")
-   "Not found"
   """
   @spec get_by_name(binary()) :: binary()
   def get_by_name(name) do

@@ -4,6 +4,12 @@ defmodule Animalium.API.PokemonAPI do
   """
   use Animalium.BaseAPI, path: "pokemon"
 
+  alias Animalium.Behaviour.PokemonAPIBehaviour
+
+  @behaviour Animalium.Behaviour.PokemonAPIBehaviour
+
+  @http_adapter Application.get_env(:animalium, :http_adapter, Animalium.API.PokemonAPI)
+
   @doc """
    Will return pokemon if provided an id
   """
@@ -20,9 +26,14 @@ defmodule Animalium.API.PokemonAPI do
   @spec get_by_name(binary()) :: response()
   def get_by_name(name) when is_binary(name), do: get_pokemon(name)
 
+  @impl PokemonAPIBehaviour
+  def fetch_content(path) do
+    __MODULE__.get(path)
+  end
+
   defp get_pokemon(id_or_name) when is_binary(id_or_name) do
     id_or_name
-    |> get()
+    |> @http_adapter.fetch_content()
     |> process_result()
   end
 
