@@ -1,6 +1,7 @@
 defmodule AnimaliumWeb.PokemonControllerTest do
   use AnimaliumWeb.ConnCase, async: true
 
+  @tag :skip
   test "GET /pokemon_by_name" do
     conn = build_conn()
     conn = get conn, Routes.pokemon_path(conn, :by_name, %{"name" => "Phoenix"})
@@ -9,6 +10,7 @@ defmodule AnimaliumWeb.PokemonControllerTest do
   end
 
 
+  @tag :skip
   test "GET /pokemon_by_id" do
     conn = build_conn()
     conn = get conn, Routes.pokemon_path(conn, :by_id, %{"id" => 1})

@@ -1,6 +1,7 @@
 defmodule AnimaliumWeb.PokemonQueriesTest do
   use AnimaliumWeb.ConnCase, sync: true
 
+  @tag :skip
   test "pokemon_by_name" do
     query = """
     query {
@@ -26,6 +27,7 @@ defmodule AnimaliumWeb.PokemonQueriesTest do
              json_response(conn, 200)
   end
 
+  @tag :skip
   test "pokemon_by_id" do
     query = """
       query {
