@@ -1,1 +1,1 @@
-Mox.defmock(PokemonAPIMock, for: Animalium.Behaviour.PokemonAPIBehaviour)
+Hammox.defmock(PokemonAPIMock, for: Animalium.Behaviour.PokemonAPIBehaviour)

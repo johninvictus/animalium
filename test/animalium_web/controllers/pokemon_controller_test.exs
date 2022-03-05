@@ -1,7 +1,7 @@
 defmodule AnimaliumWeb.PokemonControllerTest do
   use AnimaliumWeb.ConnCase, async: true
 
-  import Mox
+  import Hammox
 
   setup do
     PokemonAPIMock

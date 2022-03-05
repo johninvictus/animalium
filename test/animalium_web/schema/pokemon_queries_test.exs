@@ -1,7 +1,7 @@
 defmodule AnimaliumWeb.PokemonQueriesTest do
   use AnimaliumWeb.ConnCase, sync: true
 
-  import Mox
+  import Hammox
 
   # @tag :skip
   test "pokemon_by_name" do

@@ -2,7 +2,7 @@ defmodule Animalium.TestAPITest do
   @moduledoc false
   use Animalium.DataCase, async: true
 
-  import Mox
+  import Hammox
 
  alias Animalium.TestAPI
 

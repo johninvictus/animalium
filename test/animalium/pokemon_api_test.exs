@@ -3,7 +3,7 @@ defmodule Animalium.API.PokemonAPITest do
 
   alias Animalium.API.PokemonAPI
 
-  import Mox
+  import Hammox
 
   test "get_by_id/1 - 200" do
     PokemonAPIMock
