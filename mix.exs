@@ -53,7 +53,8 @@ defmodule Animalium.MixProject do
       {:hackney, "~> 1.17"},
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
+      {:hammox, "~> 0.5", only: :test}
     ]
   end
 

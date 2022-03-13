@@ -1,7 +1,7 @@
 defmodule Animalium.PokemonRepoTest do
   use Animalium.DataCase, async: true
 
-  import Mox
+  import Hammox
 
   alias Animalium.PokemonRepo
 
